@@ -48,44 +48,46 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-function playRound(humanChoice, computerChoice) {
-    
+function playRound(getPersonChoice, getComputerChoice) {
 
-    if(humanChoice == "rock" && computerChoice == "scissors") {
+
+    if(getPersonChoice == "rock" && getComputerChoice == "scissors") {
         console.log("You Win! Rock Beats Scissors!")
         humanScore = humanScore + 1;
     }
 
-    else if(humanChoice == "rock" && computerChoice == "paper") {
+    else if(getPersonChoice == "rock" && getComputerChoice == "paper") {
         console.log("You Lose! Paper Beats Rock!")
         computerScore = computerScore + 1;
     }
 
-    else if(humanChoice == "scissors" && computerChoice == "rock") {
+    else if(getPersonChoice == "scissors" && getComputerChoice == "rock") {
         console.log("You Lose! Rocks Beats Scissors!")
         computerScore = computerScore + 1;
     }
 
-    else if(humanChoice == "scissors" && computerChoice == "paper") {
+    else if(getPersonChoice == "scissors" && getComputerChoice == "paper") {
         console.log("You Win! Scissors Beat Rock!")
         humanScore = humanScore + 1;
     }
 
-    else if(humanChoice == "paper" && computerChoice == "rock") {
+    else if(getPersonChoice == "paper" && getComputerChoice == "rock") {
         console.log("You Win! Paper Beats Rock!")
         humanScore = humanScore + 1;
     }
 
-    else if(humanChoice == "paper" && computerChoice == "scissors") {
+    else if(getPersonChoice == "paper" && getComputerChoice == "scissors") {
         console.log("You Lose! Scissors Beat Rock!")
         computerScore = computerScore + 1;
     }
 
-    else if(humanChoice == computerChoice) {
+    else if(getComputerChoice == getComputerChoice) {
         console.log("It's A Tie! Neither Wins")
     
     }
 
 
 }
+
+function playGame()
     
