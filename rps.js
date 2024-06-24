@@ -82,7 +82,7 @@ function playRound(getPersonChoice, getComputerChoice) {
         return computerScore = computerScore + 1;
     }
 
-    else if(getComputerChoice == getComputerChoice) {
+    else if(getComputerChoice == getPersonChoice) {
         return console.log("It's A Tie! Neither Wins")
     
     }
@@ -93,7 +93,8 @@ function playRound(getPersonChoice, getComputerChoice) {
 function playGame(){
 
     while(humanScore < 5 && computerScore < 5){
-        console.log(playRound());
+        console.log(playRound(getPersonChoice, getComputerChoice));
+    }
     
     if(humanScore == 5){
         alert("Congratulations! You Won!");
@@ -108,7 +109,9 @@ function playGame(){
         humanScore = 0;
         computerScore = 0;
     }
-    }
+    
     
 }
+
+console.log(playGame());
     
