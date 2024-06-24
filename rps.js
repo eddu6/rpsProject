@@ -50,44 +50,65 @@ let computerScore = 0;
 
 function playRound(getPersonChoice, getComputerChoice) {
 
+   
 
     if(getPersonChoice == "rock" && getComputerChoice == "scissors") {
         console.log("You Win! Rock Beats Scissors!")
-        humanScore = humanScore + 1;
+        return humanScore = humanScore + 1;
     }
 
     else if(getPersonChoice == "rock" && getComputerChoice == "paper") {
         console.log("You Lose! Paper Beats Rock!")
-        computerScore = computerScore + 1;
+        return computerScore = computerScore + 1;
     }
 
     else if(getPersonChoice == "scissors" && getComputerChoice == "rock") {
         console.log("You Lose! Rocks Beats Scissors!")
-        computerScore = computerScore + 1;
+        return computerScore = computerScore + 1;
     }
 
     else if(getPersonChoice == "scissors" && getComputerChoice == "paper") {
         console.log("You Win! Scissors Beat Rock!")
-        humanScore = humanScore + 1;
+        return humanScore = humanScore + 1;
     }
 
     else if(getPersonChoice == "paper" && getComputerChoice == "rock") {
         console.log("You Win! Paper Beats Rock!")
-        humanScore = humanScore + 1;
+        return humanScore = humanScore + 1;
     }
 
     else if(getPersonChoice == "paper" && getComputerChoice == "scissors") {
         console.log("You Lose! Scissors Beat Rock!")
-        computerScore = computerScore + 1;
+        return computerScore = computerScore + 1;
     }
 
     else if(getComputerChoice == getComputerChoice) {
-        console.log("It's A Tie! Neither Wins")
+        return console.log("It's A Tie! Neither Wins")
     
     }
 
 
 }
 
-function playGame()
+function playGame(){
+
+    while(humanScore < 5 && computerScore < 5){
+        console.log(playRound());
+    
+    if(humanScore == 5){
+        alert("Congratulations! You Won!");
+
+        humanScore = 0;
+        computerScore = 0;
+    }
+
+    else if(computerScore == 5){
+        alert("You Lose! Booooo");
+
+        humanScore = 0;
+        computerScore = 0;
+    }
+    }
+    
+}
     
