@@ -1,3 +1,4 @@
+
 function getComputerChoice() {
   randomChoice = 0.5 - Math.random();
 
@@ -19,7 +20,7 @@ function getPersonChoice() {
 
   let personChoice;
   personChoice = prompt("Choose rock, paper, or scissors")
-  personChoice = personChoice.toLowerCase();
+  
 
   if(personChoice == "paper") {
     return "paper";
@@ -32,6 +33,8 @@ function getPersonChoice() {
   else if(personChoice == "scissors") {
     return "scissors";
   }
+
+  
   else{
     return getPersonChoice();
   }
@@ -78,6 +81,7 @@ function playRound(personChoice, computerChoice) {
 
   else if(personChoice == "scissors" && computerChoice == "rock") {
     computerScore = computerScore + 1;
+            
     return "You Lose! Rock Beats Scissors";
   }
   else {
@@ -88,9 +92,13 @@ function playRound(personChoice, computerChoice) {
 function playGame(){
 
     while(humanScore < 5 &&  computerScore < 5) {
-        playRound();
+
+        console.log(playRound());
+        
         console.log(`Human Score: ${humanScore}`);
         console.log(`Computer Score: ${computerScore}`);
+        console.log('  ');
+
         alert(`|Human Score: ${humanScore}|      |Computer Score: ${computerScore}|`)
         
     }
@@ -98,13 +106,13 @@ function playGame(){
     if(humanScore == 5){
         console.log(humanScore);
         console.log(computerScore);
-        return "You Won!! Woooooooooooooo";
+        return "You Won!! Nasty Nasty Nasty";
     }
 
     else{
         console.log(humanScore);
         console.log(computerScore);
-        return "You Lost! Booooooooo"
+        return "You Lost!! Booooooooo"
     }
    
 }
