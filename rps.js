@@ -21,17 +21,20 @@ let counter = 0;
 
 
     while(counter <= 0){
-        let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
+        let choice = prompt("Choose rock, paper, or scissors");
     
     if( choice == "rock"){
+        counter = 2;
         return "Rock";
     }
     
     else if(choice == "paper") {
+        counter = 2;
         return "Paper";
     }
 
     else if(choice == "scissors"){
+        counter = 2;
         return "Scissors"
     }
 
@@ -82,7 +85,7 @@ function playRound(getPersonChoice, getComputerChoice) {
         return computerScore = computerScore + 1;
     }
 
-    else if(getComputerChoice == getPersonChoice) {
+    else if(getPersonChoice == getComputerChoice) {
         return console.log("It's A Tie! Neither Wins")
     
     }
@@ -93,7 +96,7 @@ function playRound(getPersonChoice, getComputerChoice) {
 function playGame(){
 
     while(humanScore < 5 && computerScore < 5){
-        console.log(playRound(getPersonChoice, getComputerChoice));
+        console.log(playRound(getPersonChoice(), getComputerChoice()));
     }
     
     if(humanScore == 5){
@@ -113,5 +116,5 @@ function playGame(){
     
 }
 
-console.log(playGame());
+console.log(playGame())
     
