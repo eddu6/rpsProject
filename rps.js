@@ -16,11 +16,8 @@ function getComputerChoice() {
      
 }
 
-function getPersonChoice() {
+function getPersonChoice(personChoice) {
 
-  let personChoice;
-  personChoice = prompt("Choose rock, paper, or scissors")
-  
 
   if(personChoice == "paper") {
     return "paper";
@@ -44,77 +41,103 @@ function getPersonChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(personChoice, computerChoice) {
+function playRound(personChoice) {
 
-  personChoice = getPersonChoice();
-  computerChoice = getComputerChoice();
+  
+  let computerChoice = getComputerChoice();
 
 
   if(personChoice == computerChoice) {
-    return "It's a tie!";
+    console.log(`|Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}|
+      It's a tie!`);
   }
 
   else if(personChoice == "paper" && computerChoice == "scissors") {
     computerScore = computerScore + 1;
-    return "You Lose! Scissors Beat Paper!";
+    console.log(`Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}| 
+      You Lose! Scissors Beat Paper!`);
   }
 
   else if(personChoice == "paper" && computerChoice == "rock") {
     humanScore = humanScore + 1;
-    return "You Win! Paper Beats Rock!";
+    console.log(`Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}| 
+      You Win! Paper Beats Rock!`);
   }
 
   else if(personChoice == "rock" && computerChoice == "scissors") {
     humanScore = humanScore + 1;
-    return "You Win! Rock beats Scissors!";
+    console.log(`Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}| 
+      You Win! Rock beats Scissors!`);
   }
 
   else if(personChoice == "rock" && computerChoice == "paper") {
     computerScore = computerScore + 1;
-    return "You Lose! Paper beats Rock!";
+    console.log(`Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}| 
+      You Lose! Paper beats Rock!`);
   }
 
   else if(personChoice == "scissors" && computerChoice == "paper") {
     humanScore = humanScore + 1;
-    return "You Win! Scissors Beat Paper!";
+    console.log(`Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}| 
+      You Win! Scissors Beat Paper!`);
   }
 
   else if(personChoice == "scissors" && computerChoice == "rock") {
     computerScore = computerScore + 1;
             
-    return "You Lose! Rock Beats Scissors";
+    console.log(`Human Choice: ${personChoice}| VERSUS |Computer Choice: ${computerChoice}| 
+      You Lose! Rock Beats Scissors`);
   }
   else {
-    return "Something is wrong with one of the functions if this pops up"
+    console.log("Something is wrong with one of the functions if this pops up");
   }
 }
 
-function playGame(){
+function playGame(personChoice){
+if(humanScore < 5 && computerScore < 5) {
+  playRound(personChoice);
+}
+else if(humanScore == 5){
+console.log("You Won!!");
+humanScore = 0;
+computerScore = 0;
+}
 
-    while(humanScore < 5 &&  computerScore < 5) {
+else if(computerScore == 5){
+  console.log("You Lost! Boooooo");
+  computerScore = 0;
+  humanScore = 0;
 
-        console.log(playRound());
-        
-        console.log(`Human Score: ${humanScore}`);
-        console.log(`Computer Score: ${computerScore}`);
-        console.log('  ');
+}
 
-        alert(`|Human Score: ${humanScore}|      |Computer Score: ${computerScore}|`)
-        
-    }
     
-    if(humanScore == 5){
-        console.log(humanScore);
-        console.log(computerScore);
-        return "You Won!! Nasty Nasty Nasty";
-    }
-
-    else{
-        console.log(humanScore);
-        console.log(computerScore);
-        return "You Lost!! Booooooooo"
-    }
    
 }
 
-console.log(playGame());
+let body = document.querySelector('body');
+
+let scissors = document.createElement('button');
+let rock = document.createElement('button');
+let paper = document.createElement('button');
+
+rock.textContent = "Rock";
+paper.textContent = "Paper";
+scissors.textContent = "Scissors";
+
+
+body.appendChild(rock);
+body.appendChild(paper);
+body.appendChild(scissors);
+
+rock.addEventListener('click', function() {
+  playGame("rock");
+  alert(`|HumanScore: ${humanScore}|      |ComputerScore:${computerScore}|`)
+} );
+paper.addEventListener('click', function() {
+  playGame("paper")
+  alert(`|HumanScore: ${humanScore}|      |ComputerScore:${computerScore}|`)
+} );
+scissors.addEventListener('click', function() {
+  playGame("scissors")
+  alert(`|HumanScore: ${humanScore}|      |ComputerScore:${computerScore}|`)
+} );
